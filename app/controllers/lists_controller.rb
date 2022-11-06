@@ -11,6 +11,7 @@ class ListsController < ApplicationController
       render :new
     end
   end
+  
   def index
     @lists = List.all
   end
@@ -23,19 +24,19 @@ class ListsController < ApplicationController
   def edit
     @list = List.find(params[:id])
   end
-  
+
   def update
     list = List.find(params[:id])
     list.update(list_params)
     redirect_to list_path(list.id)
   end
-  
+
   def destroy
     list = List.find(params[:id])
     list.destroy
     redirect_to '/lists'
   end
-  
+
 
   private
   def list_params
